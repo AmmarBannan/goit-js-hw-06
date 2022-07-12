@@ -13,6 +13,6 @@ function handleSubmit(event) {
     return alert("all fields must be filled in");
   }
 
-  console.log(`Login: ${email.value}, Password: ${password.value}`);
+  console.log(`{Login: ${email.value}, Password: ${password.value}}`);
   event.currentTarget.reset();
 }

@@ -7,21 +7,22 @@ document.querySelector("input").addEventListener('input',(val)=>number=val.targe
 let arr=[]
 let div=document.querySelector("#boxes");
 document.querySelector("button[data-create]").addEventListener("click",()=>{
-  if(number>arr.length){
-    let i=arr.length;
+  if(number==0)return ;
+  let i=0;
     while(i<number){
-      arr.push(`<div style="background-color:${getRandomHexColor()};width:${30+i*10}px;height:${30+i*10}px"></div>`)
-      i+=1;
-      
-    }
+      let color=getRandomHexColor();
+      arr.push(`<div style="background-color:${color};width:${30+i*10}px;height:${30+i*10}px;box-shadow:${3+i}px ${3+i}px ${3+i}px ${3+i}px gray"></div>`)
+      i+=1;   
   }
-  else{arr=arr.slice(0,number)}
   div.innerHTML=arr.map((val)=>val).join("");
-  console.log(arr)
+  document.querySelector("input").value=""
+  number=0
+
 })
 document.querySelector("button[data-destroy]").addEventListener("click",()=>{
-  console.log("destroy")
   arr=[]
   div.innerHTML=arr
+  document.querySelector("input").value=""
+  number=0
 })
 
